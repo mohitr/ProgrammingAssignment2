@@ -1,9 +1,9 @@
-## Put comments here that give an overall description of what your
-## functions do
+## creates a special "matrix", which contains matrix and it's inverse with following methods
+## set: set the value of the matrix
+## get: get the value of the matrix
+## set_inverse: set the value of the matrix
+## get_inverse: get the value of the matrix
 
-## Write a short comment describing this function
-
-# below method contains matrix and it's inverse value 
 makeCacheMatrix <- function(x = matrix()) {
     inverse <- NULL
     set <- function(y) {
@@ -20,12 +20,15 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 
-## Write a short comment describing this function
-# checks if inserse is already there, if not then calculate inverse and save/cache it
+## takes special "matrix" object created using makeCacheMatrix as input
+## checks if inserse is already there, if not then calculate inverse and caches it
+## assuming matrix supplied will always be invertible, there's no check for that
+
 cacheSolve <- function(x, ...) {
           ## Return a matrix that is the inverse of 'x'}
     m <- x$get_inverse()
     if(!is.null(m)) {
+          ## message to depict inverse is fetched from cache rather than recalculating it
       message("getting cached data")
       return(m)
     }
